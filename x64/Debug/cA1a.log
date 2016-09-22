@@ -1,0 +1,6 @@
+﻿  cA1a.c
+e:\c programming\ca1a\ca1a\ca1a.c(50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\c programming\ca1a\ca1a\ca1a.c(51): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'double'
+e:\c programming\ca1a\ca1a\ca1a.c(47): warning C4101: 'random': unreferenced local variable
+e:\c programming\ca1a\ca1a\ca1a.c(85): warning C4716: 'pickCases': must return a value
+  cA1a.vcxproj -> E:\C Programming\cA1a\x64\Debug\cA1a.exe
