@@ -6,18 +6,24 @@
 
 int getNum(void);
 void setCases(float cases[]);
-//int pickUserCase();
+int pickUserCase();
 //float randomNum(time_t t);
-int pickCases(int numOfCases, float cases[]);
+int pickCases(int numOfCases, float cases[], int user);
+int randNum(void);
 
 int main(void) {
 
 	float cases[26];
 	int userCase=0;
-	setCases(cases);
-	//userCase = pickUserCase();
 
-	pickCases(6, cases);
+	for (int i = 0; i < 26; i++) {
+		cases[i] = 0;
+	}
+
+	setCases(cases);
+	userCase = pickUserCase();
+
+	pickCases(6, cases, userCase);
 
 		for (int i = 0; i < 13; i++) {
 	printf("%7.1f%11.1f\n", cases[i], cases[i+13]);
@@ -37,7 +43,17 @@ int getNum(void)
 	return number;
 }
 
+int randNum(void) {
+	
+	int random;
+	time_t t;
+	srand((unsigned)time(&t));
+	random = (rand() % 26);
 
+	return random;
+
+
+}
 void setCases(float cases[]) {
 	FILE *file;
 	file = fopen("cases.txt", "r");
@@ -47,8 +63,18 @@ void setCases(float cases[]) {
 	int random;
 
 	for (int i = 0; i < 26; i++) {
-		cases[i] = i;
-		printf("%f\n", cases[i]);
+		RAND:
+		random = randNum();
+
+		if (cases[random] == 0) {
+			fscanf(file, "%f", &cases[random]);
+			printf("%f\n", cases[random]);
+		}
+		else{
+			goto RAND;
+		}
+		//cases[i] = i;
+		//printf("%f\n", cases[i]);
 		//random = (rand() % 26);
 		//printf("%d\n", random);
 		//if (cases[random] == 0) {
@@ -67,19 +93,25 @@ void setCases(float cases[]) {
 	fclose(file);
 }
 
-/*int pickUserCase() {
+int pickUserCase() {
 	int nCase = 0;
 	printf("please pick your case number\n");
-		scanf_s("%d", &nCase);
+	//	scanf_s("%d", &nCase);
+	nCase = getNum();
 		return nCase;
-	}*/
+	}
 
-int pickCases(int num, float cases[]) {
+int pickCases(int num, float cases[], int user) {
 	int index=0;
 	for (int i = 0; i < num; i++) {
 		printf("pick a case...\n");
 			index = getNum();
-			printf("that case held %f\n", cases[index-1]);
-			cases[index-1] = 00000.0000;
+			if (index == user) {
+				printf("You can't pick your own case dummy\n");
+			}
+			else {
+				printf("that case held %f\n", cases[index - 1]);
+				cases[index - 1] = 00000.0000;
+			}
 		}
 	}

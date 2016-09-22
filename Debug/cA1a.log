@@ -1,3 +1,4 @@
 ﻿  cA1a.c
-e:\c programming\ca1a\ca1a\ca1a.c(9): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\justin\desktop\school\c\ca1a\ca1a.c(117): warning C4716: 'pickCases': must return a value
+  cA1a.vcxproj -> C:\Users\Justin\Desktop\School\c\cA1a\Debug\cA1a.exe
+  cA1a.vcxproj -> C:\Users\Justin\Desktop\School\c\cA1a\Debug\cA1a.pdb (Full PDB)
